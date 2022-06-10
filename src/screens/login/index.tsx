@@ -1,7 +1,22 @@
-import React from 'react';
+import React, { FormEvent, useState } from 'react';
+import { AuthLogin } from '../../services/api';
 import './login.css';
 
 export default function index() {
+	const [fields, setFields] = useState({ email: '', password: '' });
+	const [isLoading, setLoad] = useState(false);
+
+	const onSubmitLogin = (event: FormEvent) => {
+		event.preventDefault();
+		AuthLogin(fields)
+			.then((data) => {
+				console.log(data);
+			})
+			.catch((err) => {
+				console.log(err);
+			});
+	};
+
 	return (
 		<main>
 			<div className="wrapper">
@@ -11,14 +26,34 @@ export default function index() {
 						<h2>Faça seu login e comece a criar!</h2>
 					</header>
 					<div className="card">
-						<form action="">
+						<form onSubmit={onSubmitLogin}>
 							<div className="form-group">
 								<label>E-mail</label>
-								<input type="text" />
+								<input
+									type="text"
+									name="email"
+									value={fields.email}
+									onChange={(event) => {
+										setFields((prev) => ({
+											...prev,
+											email: event.target.value,
+										}));
+									}}
+								/>
 							</div>
 							<div className="form-group">
 								<label>Senha</label>
-								<input type="password" />
+								<input
+									type="password"
+									name="password"
+									value={fields.password}
+									onChange={(event) => {
+										setFields((prev) => ({
+											...prev,
+											password: event.target.value,
+										}));
+									}}
+								/>
 							</div>
 							<div className="form-group">
 								<button> Login </button>
