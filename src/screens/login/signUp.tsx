@@ -1,8 +1,8 @@
-import React, { FormEvent, useState } from 'react';
-import { AuthLogin } from '../../services/api';
+import React from 'react';
 import './login.css';
 import { useFormik } from 'formik';
 import * as Yup from 'yup';
+import { CreateAccount } from '../../services/api';
 
 const validationSchema = Yup.object().shape({
 	email: Yup.string()
@@ -10,18 +10,19 @@ const validationSchema = Yup.object().shape({
 		.max(255)
 		.required('Email is required'),
 	password: Yup.string().max(255).required('Password is required'),
+	psswConfirm: Yup.string().oneOf(
+		[Yup.ref('password'), null],
+		'Passwords must match'
+	),
 });
+const formInitialValues = { email: '', password: '', psswConfirm: '' };
 
-const formInitialValues = { email: '', password: '' };
-
-export default function index() {
-	const [isLoading, setLoad] = useState(false);
-
+export default function SignUp() {
 	const formik = useFormik({
 		initialValues: formInitialValues,
 		validationSchema: validationSchema,
 		onSubmit: (values) => {
-			AuthLogin(values)
+			CreateAccount(values)
 				.then((data) => {
 					console.log(data);
 				})
@@ -31,7 +32,7 @@ export default function index() {
 		},
 	});
 
-	const getClass = (name: 'password' | 'email') => {
+	const getClass = (name: 'password' | 'email' | 'psswConfirm') => {
 		if (formik.errors[name]) {
 			return 'error';
 		}
@@ -44,7 +45,7 @@ export default function index() {
 				<div className="wrapp-all">
 					<header>
 						<img src="/assets/oct-logo.svg" alt="OCT Videos" className="logo" />
-						<h2>Faça seu login e comece a criar!</h2>
+						<h2>Cadastre-se!</h2>
 					</header>
 					<div className="card">
 						<form onSubmit={formik.handleSubmit}>
@@ -65,11 +66,19 @@ export default function index() {
 								/>
 							</div>
 							<div className="form-group">
+								<label>Confirmar Senha</label>
+								<input
+									type="password"
+									{...formik.getFieldProps('psswConfirm')}
+									className={getClass('psswConfirm')}
+								/>
+							</div>
+							<div className="form-group">
 								<button> Login </button>
 							</div>
 							<hr />
 							<footer>
-								<a href="/signup">Cadastre-se</a>
+								<a href="/login">Fazer login</a>
 								<a href="/cadastr-se">Eequeci minha senha</a>
 							</footer>
 						</form>

@@ -13,15 +13,11 @@ export const AuthLogin = async ({
 	email: string;
 	password: string;
 }) => {
-	try {
-		const { data } = await instance.post<AuthLoginResponse>('/auth', {
-			email,
-			password,
-		});
-		return data;
-	} catch (error) {
-		console.error(error);
-	}
+	const { data } = await instance.post<AuthLoginResponse>('/auth', {
+		email,
+		password,
+	});
+	return data;
 };
 
 export const CreateAccount = async ({
@@ -31,15 +27,11 @@ export const CreateAccount = async ({
 	email: string;
 	password: string;
 }) => {
-	try {
-		const { data } = await instance.post<AuthLoginResponse>('/auth', {
-			email,
-			password,
-		});
-		return data;
-	} catch (error) {
-		console.error(error);
-	}
+	const { data } = await instance.post<{ message: string }>('/user', {
+		email,
+		password,
+	});
+	return data;
 };
 
 export default instance;
