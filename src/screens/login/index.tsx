@@ -3,6 +3,7 @@ import { AuthLogin } from '../../services/api';
 import './login.css';
 import { useFormik } from 'formik';
 import * as Yup from 'yup';
+import { authUseAction } from '../../state/AuthState/AuthUseActions';
 
 const validationSchema = Yup.object().shape({
 	email: Yup.string()
@@ -16,6 +17,7 @@ const formInitialValues = { email: '', password: '' };
 
 export default function index() {
 	const [isLoading, setLoad] = useState(false);
+	const AuthActions = authUseAction();
 
 	const formik = useFormik({
 		initialValues: formInitialValues,
@@ -23,7 +25,7 @@ export default function index() {
 		onSubmit: (values) => {
 			AuthLogin(values)
 				.then((data) => {
-					console.log(data);
+					AuthActions.onLoginSuccess(data);
 				})
 				.catch((err) => {
 					alert('Algo deu errado, tente novamente mais tarde!');
