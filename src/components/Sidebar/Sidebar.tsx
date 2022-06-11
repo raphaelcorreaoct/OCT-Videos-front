@@ -7,10 +7,14 @@ import {
 	HiOutlineNewspaper,
 	HiOutlineUsers,
 	HiOutlineUserCircle,
+	HiOutlineLogout,
 } from 'react-icons/hi';
 import { AiOutlineSetting } from 'react-icons/ai';
+import { authUseAction } from '../../state/AuthState/AuthUseActions';
 
 export default function Sidebar() {
+	const AuthActions = authUseAction();
+
 	return (
 		<aside className="admin__sidebar">
 			<div className="logo">
@@ -60,6 +64,16 @@ export default function Sidebar() {
 						<a href="#">
 							<AiOutlineSetting />
 							Configurações
+						</a>
+						<a
+							href="#"
+							onClick={(event) => {
+								event.preventDefault();
+								AuthActions.logout();
+							}}
+						>
+							<HiOutlineLogout />
+							Sair
 						</a>
 					</nav>
 				</div>

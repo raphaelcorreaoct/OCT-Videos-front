@@ -7,5 +7,43 @@
 		position: fixed;
 		top: 0;
 		right: 0;
+
+		.wrapper {
+			@apply h-full;
+			@apply container;
+			@apply px-5;
+			@apply flex;
+			@apply items-center;
+			@apply justify-between;
+
+			h2 {
+				@apply text-2xl;
+				@apply font-bold;
+			}
+		}
+
+		.user-menu {
+			@apply flex;
+			@apply items-center;
+			@apply text-right;
+			img {
+				height: 30px;
+				height: 30px;
+				border-radius: 100%;
+				object-fit: cover;
+			}
+
+			> div {
+				@apply mr-2;
+				h3 {
+					@apply text-lg;
+					@apply font-bold;
+				}
+				span {
+					@apply text-gray-500;
+					@apply text-xs;
+				}
+			}
+		}
 	}
 }
