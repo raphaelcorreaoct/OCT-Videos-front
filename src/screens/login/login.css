@@ -1,14 +1,14 @@
-body {
+main.login {
   @apply bg-slate-400;
 }
 
 
-.logo {
+main.login .logo {
   @apply max-w-[200px];
   @apply mb-5;
 }
 
-.wrapper {
+main.login .wrapper {
   @apply container;
   @apply mx-auto;
   @apply flex-1;
@@ -19,13 +19,13 @@ body {
   width: 100%;
 }
 
-.wrapp-all{
+main.login .wrapp-all{
   @apply w-full;
   @apply flex;
   @apply flex-col;
   @apply items-center;
 }
-.wrapp-all header {
+main.login .wrapp-all header {
   @apply text-center;
   @apply mb-6;
   @apply flex;
@@ -33,13 +33,13 @@ body {
   @apply items-center;
 }
 
-.wrapp-all header h2 {
+main.login .wrapp-all header h2 {
   @apply text-black;
   @apply font-bold;
   @apply text-3xl;
 }
 
-.card {
+main.login .card {
   @apply bg-white;
   @apply rounded;
   @apply px-5;
@@ -52,12 +52,12 @@ body {
 }
 
 
-.form-group {
+main.login .form-group {
   @apply flex;
   @apply flex-col;
 }
 
-.form-group input {
+main.login .form-group input {
   @apply border;
   @apply border-gray-300;
   @apply rounded;
@@ -66,11 +66,11 @@ body {
   @apply my-3;
 }
 
-.form-group input.error {
+main.login .form-group input.error {
   @apply border-rose-500;
 }
 
-.form-group button {
+main.login .form-group button {
   @apply flex;
   @apply items-center;
   @apply justify-center;
@@ -90,21 +90,21 @@ body {
 }
 
 
-form hr {
+main.login form hr {
   @apply w-full;
   @apply my-3;
   @apply mt-6;
 }
 
 
-form footer {
+main.login form footer {
   @apply flex;
   @apply justify-between;
   @apply my-2;
   @apply mb-3;
 }
 
-form footer a {
+main.login form footer a {
   @apply text-indigo-600;
   @apply hover:text-indigo-700;
 }

@@ -16,7 +16,6 @@ const validationSchema = Yup.object().shape({
 const formInitialValues = { email: '', password: '' };
 
 export default function index() {
-	const [isLoading, setLoad] = useState(false);
 	const AuthActions = authUseAction();
 
 	const formik = useFormik({
@@ -28,7 +27,7 @@ export default function index() {
 					AuthActions.onLoginSuccess(data);
 				})
 				.catch((err) => {
-					alert('Algo deu errado, tente novamente mais tarde!');
+					alert(`Algo deu errado: ${err.message}`);
 				});
 		},
 	});
@@ -41,7 +40,7 @@ export default function index() {
 	};
 
 	return (
-		<main>
+		<main className="login">
 			<div className="wrapper">
 				<div className="wrapp-all">
 					<header>

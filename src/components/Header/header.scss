@@ -1,0 +1,11 @@
+.admin {
+	&__header {
+		@apply bg-white;
+		@apply w-full;
+		height: 60px;
+		padding-left: 200px;
+		position: fixed;
+		top: 0;
+		right: 0;
+	}
+}

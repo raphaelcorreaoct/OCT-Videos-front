@@ -1,9 +1,9 @@
 import { combineReducers } from 'redux';
-import { AuthProps } from './types';
 import { authReducer } from './AuthState/AuthReducer';
+import { AuthLoginResponse } from '../services/apiTypes';
 
 export interface ReducerProps {
-	auth: AuthProps;
+	auth: AuthLoginResponse;
 }
 
 const rootReducer = combineReducers({

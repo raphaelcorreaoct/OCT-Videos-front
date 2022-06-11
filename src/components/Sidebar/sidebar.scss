@@ -1,0 +1,49 @@
+.admin {
+	.logo {
+		@apply mb-5;
+		@apply flex;
+		@apply items-center;
+		@apply justify-center;
+		height: 60px;
+
+		img {
+			max-height: 50px;
+		}
+	}
+
+	&__sidebar {
+		@apply w-full;
+		@apply max-w-[200px];
+		@apply bg-gray-800;
+		@apply px-3;
+		height: 100vh;
+		position: fixed;
+		left: 0;
+		top: 0;
+	}
+
+	.menu-section {
+		@apply mb-10;
+		h6 {
+			@apply text-gray-600;
+			@apply text-sm;
+		}
+
+		nav {
+			a {
+				@apply text-white;
+				@apply flex;
+				@apply items-center;
+				@apply hover:bg-gray-700;
+				@apply rounded;
+				@apply px-2;
+				@apply py-3;
+				@apply my-2;
+
+				svg {
+					@apply mr-2;
+				}
+			}
+		}
+	}
+}
