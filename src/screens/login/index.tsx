@@ -1,9 +1,10 @@
 import React, { FormEvent, useState } from 'react';
-import { AuthLogin } from '../../services/api';
+
 import './login.css';
 import { useFormik } from 'formik';
 import * as Yup from 'yup';
 import { authUseAction } from '../../state/AuthState/AuthUseActions';
+import { AuthLogin } from '../../services/service-auth';
 
 const validationSchema = Yup.object().shape({
 	email: Yup.string()

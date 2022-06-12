@@ -17,7 +17,7 @@ export default function Header() {
 						<span>{user.email}</span>
 					</div>
 
-					{user.avatar ? (
+					{user.avatar && typeof user.avatar === 'string' ? (
 						<img src={user.avatar} alt={user.email} />
 					) : (
 						<HiOutlineUserCircle size={30} />

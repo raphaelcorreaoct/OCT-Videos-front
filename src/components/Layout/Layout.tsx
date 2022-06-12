@@ -3,9 +3,15 @@ import Header from '../Header/Header';
 import Sidebar from '../Sidebar/Sidebar';
 import './layout.scss';
 
-export const Layout = ({ children }: { children: React.ReactNode }) => {
+export const Layout = ({
+	children,
+	pageClass,
+}: {
+	children: React.ReactNode;
+	pageClass?: string;
+}) => {
 	return (
-		<div className="admin">
+		<div className={`admin ${pageClass}`}>
 			<Header />
 			<Sidebar />
 			<main>{children}</main>

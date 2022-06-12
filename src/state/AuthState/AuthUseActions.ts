@@ -7,6 +7,7 @@ export const authUseAction = () => {
 
 	return {
 		onLoginSuccess: (data: AuthLoginResponse) => {
+			localStorage.setItem('oct_token', data.token);
 			dispatch({ type: AuthActionsTypes.LOGIN, payload: data });
 		},
 		logout: () => {

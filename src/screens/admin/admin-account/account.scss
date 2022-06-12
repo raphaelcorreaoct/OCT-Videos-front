@@ -1,0 +1,46 @@
+.account {
+	.form-update-account {
+		@apply grid;
+		@apply gap-3;
+		@apply grid-cols-2;
+
+		.form-group {
+			@apply flex;
+			@apply flex-col;
+
+			input,
+			select {
+				@apply border;
+				@apply border-gray-300;
+				@apply rounded;
+				@apply min-h-[45px];
+				@apply px-2;
+				@apply my-3;
+				@apply w-full;
+
+				&.error {
+					@apply border-rose-500;
+				}
+			}
+
+			button {
+				@apply flex;
+				@apply items-center;
+				@apply justify-center;
+				@apply px-8;
+				@apply py-3;
+				@apply border;
+				@apply border-transparent;
+				@apply text-base;
+				@apply font-medium;
+				@apply rounded-md;
+				@apply text-white;
+				@apply bg-indigo-600;
+				@apply hover:bg-indigo-700;
+				@apply md:py-4;
+				@apply md:text-lg;
+				@apply md:px-10;
+			}
+		}
+	}
+}

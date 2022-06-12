@@ -2,7 +2,7 @@ import React from 'react';
 import './login.css';
 import { useFormik } from 'formik';
 import * as Yup from 'yup';
-import { CreateAccount } from '../../services/api';
+import { CreateAccount } from '../../services/service-account';
 
 const validationSchema = Yup.object().shape({
 	email: Yup.string()
