@@ -7,6 +7,7 @@ import Login from './screens/login';
 import ReplacePassword from './screens/login/replacePassword';
 import SignUp from './screens/login/signUp';
 import { ReducerProps } from './state/rootReducer';
+import Account from './screens/admin/admin-account/Account';
 
 const LoginStack = () => {
 	return (
@@ -22,6 +23,7 @@ const AppStack = () => {
 	return (
 		<Routes>
 			<Route element={<AdminHome />} path="/" />
+			<Route element={<Account />} path="/minha-conta" />
 		</Routes>
 	);
 };

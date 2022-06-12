@@ -11,6 +11,7 @@ import {
 } from 'react-icons/hi';
 import { AiOutlineSetting } from 'react-icons/ai';
 import { authUseAction } from '../../state/AuthState/AuthUseActions';
+import { Link } from 'react-router-dom';
 
 export default function Sidebar() {
 	const AuthActions = authUseAction();
@@ -57,10 +58,10 @@ export default function Sidebar() {
 				<div className="menu-section">
 					<h6>Geral</h6>
 					<nav>
-						<a href="#">
+						<Link to="/minha-conta">
 							<HiOutlineUserCircle />
 							Minha conta
-						</a>
+						</Link>
 						<a href="#">
 							<AiOutlineSetting />
 							Configurações

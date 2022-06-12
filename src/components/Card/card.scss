@@ -1,0 +1,21 @@
+.card {
+	@apply bg-white;
+	@apply rounded;
+	@apply shadow;
+
+	&__header {
+		h4 {
+			@apply text-base;
+			@apply font-bold;
+		}
+	}
+
+	&__header,
+	&__body,
+	&__footer {
+		@apply px-5;
+		@apply py-3;
+		@apply border-b;
+		@apply border-gray-200;
+	}
+}
