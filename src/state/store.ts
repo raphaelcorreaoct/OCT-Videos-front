@@ -1,4 +1,8 @@
-import { createStore, applyMiddleware, compose } from 'redux';
+import {
+	legacy_createStore as createStore,
+	applyMiddleware,
+	compose,
+} from 'redux';
 import { persistStore, persistReducer } from 'redux-persist';
 import storage from 'redux-persist/lib/storage';
 import thunk from 'redux-thunk';
@@ -13,11 +17,5 @@ const persistConfig = {
 
 const persistedReducer = persistReducer(persistConfig, rootReducer);
 const middleware = applyMiddleware(thunk);
-export const store = createStore(
-	persistedReducer,
-	compose(
-		middleware
-		//Reactotron.createEnhancer(),
-	)
-);
+export const store = createStore(persistedReducer, compose(middleware));
 export const persistor = persistStore(store);

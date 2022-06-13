@@ -1,12 +1,15 @@
 import axios, { AxiosRequestConfig } from 'axios';
+import { store } from '../state/store';
+import { AuthLoginResponse } from './apiTypes';
 
 export const getHeader = (): AxiosRequestConfig => {
-	const token = localStorage.getItem('oct_token');
+	//const token = localStorage.getItem('oct_token');
+	const authStore = store.getState().auth as AuthLoginResponse;
 
-	if (token)
+	if (authStore.token)
 		return {
 			headers: {
-				authorization: `Bearer ${token}`,
+				authorization: `Bearer ${authStore.token}`,
 			},
 		};
 
